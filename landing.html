@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="t-title">إيفاد | Efad - بوابتك للمنح العالمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #f8fbff; color: #333; line-height: 1.7; transition: all 0.3s ease; overflow-x: hidden; }
+        
+        /* الناف بار */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 28px; font-weight: 800; color: #1a3c5e; }
+        .nav-buttons { display: flex; gap: 12px; align-items: center; }
+        .lang-btn { background: #f0f4f8; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; color: #546e7a; transition: 0.3s; font-family: inherit; }
+        .lang-btn:hover { background-color: #e1e8ed; color: #1a3c5e; }
+        .login-nav-btn { background: linear-gradient(135deg, #27ae60, #219150); color: white; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2); font-family: inherit; }
+        .login-nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3); }
+
+        /* الهيرو */
+        .hero { text-align: center; padding: 140px 20px 180px; background: linear-gradient(135deg, rgba(16, 42, 67, 0.9), rgba(36, 59, 85, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .hero h1 { font-size: 56px; margin-bottom: 25px; font-weight: 800; letter-spacing: -1px; }
+        .hero p { font-size: 22px; max-width: 750px; margin: 0 auto 30px; color: #d9e2ec; }
+        .hero-btn { background: #27ae60; color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 20px; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4); font-family: inherit; }
+        .hero-btn:hover { transform: translateY(-3px); background: #219150; }
+
+        /* البرهان الاجتماعي */
+        .logos-banner { background: white; padding: 30px 5%; text-align: center; margin-top: -60px; position: relative; z-index: 10; border-radius: 15px; max-width: 900px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
+        .logos-banner p { color: #8795a1; font-weight: 600; margin-bottom: 20px; font-size: 14px; }
+        .logos-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; opacity: 0.7; filter: grayscale(100%); align-items: center; }
+        .logos-grid img { height: 45px; object-fit: contain; }
+
+        /* المميزات */
+        .section { padding: 80px 5%; text-align: center; }
+        .section h2 { font-size: 38px; color: #102a43; margin-bottom: 50px; font-weight: 800; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
+        .card { background: white; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); transition: all 0.4s ease; border: 1px solid #f0f4f8; text-align: start; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); border-color: #d9e2ec; }
+        .card-icon { font-size: 45px; margin-bottom: 20px; display: inline-block; }
+        .card h3 { color: #1a3c5e; margin-bottom: 15px; font-size: 22px; font-weight: 700; }
+        .card p { color: #627d98; font-size: 16px; }
+
+        /* نظرة من الداخل */
+        .mockup-section { background-color: #f0f4f8; padding: 80px 5%; text-align: center; }
+        .mockup-container { max-width: 800px; margin: auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-top: 5px solid #27ae60; text-align: start; }
+        .mockup-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1e8ed; padding-bottom: 15px; margin-bottom: 20px; }
+        .mockup-score { font-size: 48px; font-weight: 800; color: #27ae60; }
+        .mockup-bar { height: 10px; background: #e1e8ed; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+        .mockup-progress { width: 75%; height: 100%; background: #27ae60; }
+
+        /* الأسئلة الشائعة */
+        .faq-section { max-width: 800px; margin: 0 auto; padding: 80px 5%; text-align: start; }
+        details { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f0f4f8; cursor: pointer; transition: all 0.3s ease; }
+        details[open] { box-shadow: 0 8px 25px rgba(0,0,0,0.05); border-color: #d9e2ec; }
+        summary { font-size: 18px; font-weight: 700; color: #1a3c5e; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary span:last-child { font-size: 24px; color: #27ae60; font-weight: 300; }
+        details[open] summary span:last-child { transform: rotate(45deg); }
+        details p { margin-top: 15px; color: #627d98; font-size: 16px; line-height: 1.6; border-top: 1px solid #f0f4f8; padding-top: 15px; }
+
+        /* الفوتر */
+        footer { background-color: #102a43; color: white; padding: 60px 5% 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; text-align: start; }
+        .footer-col h4 { font-size: 20px; margin-bottom: 20px; color: #fff; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #bcccdc; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: #27ae60; }
+        .footer-bottom { text-align: center; padding-top: 30px; color: #8795a1; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="شعار إيفاد" style="height: 85px; object-fit: contain;">
+        </div>
+        <div class="nav-buttons">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn-text">English</button>
+            <button class="login-nav-btn" onclick="login()" id="t-nav-login">تسجيل الدخول</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 id="t-hero-title">لا تدع الظروف تحدد مستقبلك</h1>
+        <p id="t-hero-desc">منصتك الأولى المدعومة بالذكاء الاصطناعي، لتحليل قدراتك وبناء خارطة طريق توصلك لأرقى الجامعات والمنح العالمية.</p>
+        <button class="hero-btn" id="t-hero-main-btn" onclick="login()">ابدأ تقييمك الآن</button>
+    </header>
+
+    <div class="logos-banner">
+        <p id="t-trusted">نستهدف معايير أرقى المؤسسات التعليمية العالمية</p>
+        <div class="logos-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Harvard_University_coat_of_arms.svg" alt="Harvard">
+            <img src="MIT.png" alt="MIT">
+            <img src="https://logodownload.org/wp-content/uploads/2021/04/stanford-university-logo-1.png" alt="Stanford">
+        </div>
+    </div>
+
+    <section class="section">
+        <h2 id="t-section-title">لماذا إيفاد؟</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">🎯</span>
+                <h3 id="t-card1-title">توجيه دقيق كالسهم</h3>
+                <p id="t-card1-desc">لا مزيد من التشتت. خوارزمياتنا تحلل ملفك وتقارنه بمعايير القبول الحقيقية لتعطيك نسبة نجاح واقعية.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧠</span>
+                <h3 id="t-card2-title">ذكاء اصطناعي يفك الشفرة</h3>
+                <p id="t-card2-desc">نكتشف الفجوات الخفية في مهاراتك وأنشطتك التي قد تمنع قبولك، ونقترح عليك الحلول العملية لسدها.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🗺️</span>
+                <h3 id="t-card3-title">خارطة طريق مخصصة لك</h3>
+                <p id="t-card3-desc">لا تحصل فقط على تقييم، بل على خطة عمل زمنية بالأشهر، ومصادر تعليمية مختارة خصيصاً لرفع مستواك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mockup-section">
+        <h2 id="t-mockup-title" style="color: #102a43; font-size: 38px; font-weight: 800; margin-bottom: 40px;">نظرة على منتجنا من الداخل</h2>
+        <div class="mockup-container">
+            <div class="mockup-header">
+                <div>
+                    <h3 id="t-mockup-user" style="margin: 0; color: #1a3c5e;">مرحباً، فهد 👋</h3>
+                    <p id="t-mockup-sub" style="margin: 5px 0 0 0; color: #627d98;">تحليل ملفك لمنحة Rise جاهز</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="mockup-score">75%</div>
+                    <span id="t-mockup-score-text" style="color: #627d98; font-size: 14px; font-weight: bold;">نسبة القبول المتوقعة</span>
+                </div>
+            </div>
+            <div class="mockup-bar"><div class="mockup-progress"></div></div>
+            <p id="t-mockup-advice" style="margin-top: 20px; color: #34495e; font-weight: 600;">💡 نصيحة الذكاء الاصطناعي: لرفع النسبة إلى 90%، ركز هذا الشهر على المشاريع التطوعية الموثقة.</p>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 id="t-faq-title" style="text-align: center; color: #102a43; font-size: 38px; font-weight: 800; margin-bottom: 40px;">الأسئلة الشائعة</h2>
+        <details>
+            <summary><span id="t-faq1q">هل منصة إيفاد مجانية بالكامل؟</span> <span>+</span></summary>
+            <p id="t-faq1a">نعم، المنصة صُممت خصيصاً لدعم الطلاب في مناطق النزاع مثل اليمن وسوريا، وستبقى مجانية دائماً لضمان تكافؤ الفرص.</p>
+        </details>
+        <details>
+            <summary><span id="t-faq2q">كيف تحسب الخوارزمية نسبة القبول؟</span> <span>+</span></summary>
+            <p id="t-faq2a">نعتمد على تحليل بيانات آلاف المقبولين سابقاً في منح مثل Rise وهارفارد، ونطابق مهاراتك، معدلك، وأنشطتك مع معاييرهم الدقيقة.</p>
+        </details>
+        <details>
+            <summary><span id="t-faq3q">هل بياناتي الشخصية آمنة؟</span> <span>+</span></summary>
+            <p id="t-faq3a">نحن نأخذ خصوصيتك بجدية مطلقة. نستخدم أحدث بروتوكولات التشفير، ولا نشارك بياناتك مع أي جهة خارجية إطلاقاً.</p>
+        </details>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 id="t-footer-about">عن إيفاد</h4>
+                <p id="t-footer-desc" style="color: #bcccdc; font-size: 14px; line-height: 1.8;">مشروع تقني صُمم بشغف لإحداث تغيير حقيقي في حياة الطلاب العرب، وربطهم بأفضل الفرص العالمية.</p>
+            </div>
+            <div class="footer-col">
+                <h4 id="t-footer-links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="landing.html" id="t-link1">الرئيسية</a></li> 
+                    <li><a href="index.html" id="t-link2">التقييم الذكي</a></li> 
+                    <li><a href="mailto:support@efad.com" id="t-link3">تواصل معنا</a></li> 
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="t-footer-legal">الشؤون القانونية</h4>
+                <ul>
+                    <li><a href="privacy.html" id="t-link4">سياسة الخصوصية</a></li> 
+                    <li><a href="privacy.html" id="t-link5">شروط الاستخدام</a></li>
+                    <li><a href="privacy.html" id="t-link6">أمان البيانات</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span id="t-footer-copy">صُمم في الرياض للعقول العربية المبدعة | منصة إيفاد © 2026</span>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: {
+                title: "إيفاد | Efad - بوابتك للمنح العالمية",
+                logo: "إيفاد", langBtn: "English", navLogin: "تسجيل الدخول",
+                heroTitle: "لا تدع الظروف تحدد مستقبلك", heroDesc: "منصتك الأولى المدعومة بالذكاء الاصطناعي، لتحليل قدراتك وبناء خارطة طريق توصلك لأرقى الجامعات والمنح العالمية.",
+                heroMainBtn: "ابدأ تقييمك الآن",
+                trusted: "نستهدف معايير أرقى المؤسسات التعليمية العالمية",
+                sectionTitle: "لماذا إيفاد؟",
+                card1Title: "توجيه دقيق كالسهم", card1Desc: "لا مزيد من التشتت. خوارزمياتنا تحلل ملفك وتقارنه بمعايير القبول الحقيقية لتعطيك نسبة نجاح واقعية.",
+                card2Title: "ذكاء اصطناعي يفك الشفرة", card2Desc: "نكتشف الفجوات الخفية في مهاراتك وأنشطتك التي قد تمنع قبولك، ونقترح عليك الحلول العملية لسدها.",
+                card3Title: "خارطة طريق مخصصة لك", card3Desc: "لا تحصل فقط على تقييم، بل على خطة عمل زمنية بالأشهر، ومصادر تعليمية مختارة خصيصاً لرفع مستواك.",
+                mockupTitle: "نظرة على منتجنا من الداخل", mockupUser: "مرحباً، فهد 👋", mockupSub: "تحليل ملفك لمنحة Rise جاهز", mockupScoreText: "نسبة القبول المتوقعة", mockupAdvice: "💡 نصيحة الذكاء الاصطناعي: لرفع النسبة إلى 90%، ركز هذا الشهر على المشاريع التطوعية الموثقة.",
+                faqTitle: "الأسئلة الشائعة",
+                faq1q: "هل منصة إيفاد مجانية بالكامل؟", faq1a: "نعم، المنصة صُممت خصيصاً لدعم الطلاب في مناطق النزاع مثل اليمن وسوريا، وستبقى مجانية دائماً لضمان تكافؤ الفرص.",
+                faq2q: "كيف تحسب الخوارزمية نسبة القبول؟", faq2a: "نعتمد على تحليل بيانات آلاف المقبولين سابقاً في منح مثل Rise وهارفارد، ونطابق مهاراتك، معدلك، وأنشطتك مع معاييرهم الدقيقة.",
+                faq3q: "هل بياناتي الشخصية آمنة؟", faq3a: "نحن نأخذ خصوصيتك بجدية مطلقة. نستخدم أحدث بروتوكولات التشفير، ولا نشارك بياناتك مع أي جهة خارجية إطلاقاً.",
+                footerAbout: "عن إيفاد", footerDesc: "مشروع تقني صُمم بشغف لإحداث تغيير حقيقي في حياة الطلاب العرب، وربطهم بأفضل الفرص العالمية.",
+                footerLinks: "روابط سريعة", link1: "الرئيسية", link2: "المنح المدعومة", link3: "تواصل معنا",
+                footerLegal: "الشؤون القانونية", link4: "سياسة الخصوصية", link5: "شروط الاستخدام", link6: "أمان البيانات",
+                footerCopy: "صُمم في الرياض للعقول العربية المبدعة | منصة إيفاد © 2026"
+            },
+            en: {
+                title: "Efad - Your Portal to Global Scholarships",
+                logo: "Efad", langBtn: "العربية", navLogin: "Login",
+                heroTitle: "Don't Let Circumstances Define Your Future", heroDesc: "Your premier AI-powered platform to analyze your potential and build a tailored roadmap to top global universities and scholarships.",
+                heroMainBtn: "Start Your Assessment Now",
+                trusted: "TARGETING STANDARDS OF TOP GLOBAL INSTITUTIONS",
+                sectionTitle: "Why Efad?",
+                card1Title: "Precision Guidance", card1Desc: "No more confusion. Our algorithms analyze your profile against real admission criteria to give you a realistic success probability.",
+                card2Title: "AI Decodes the Path", card2Desc: "We discover hidden gaps in your skills and extracurriculars that might hinder your acceptance and suggest practical solutions.",
+                card3Title: "Tailored Roadmap for You", card3Desc: "Don't just get an assessment; get a month-by-month action plan and curated educational resources to elevate your level.",
+                mockupTitle: "A Sneak Peek Inside", mockupUser: "Welcome, Fahd 👋", mockupSub: "Your Rise scholarship analysis is ready", mockupScoreText: "Expected Acceptance Rate", mockupAdvice: "💡 AI Tip: To boost your rate to 90%, focus on documented volunteer projects this month.",
+                faqTitle: "Frequently Asked Questions",
+                faq1q: "Is the Efad platform completely free?", faq1a: "Yes, the platform is specifically designed to support students in conflict zones like Yemen and Syria, and will remain free forever to ensure equal opportunities.",
+                faq2q: "How does the algorithm calculate the acceptance rate?", faq2a: "We rely on analyzing data from thousands of previously accepted students in scholarships like Rise and Harvard, matching your skills, GPA, and activities with their precise criteria.",
+                faq3q: "Is my personal data safe?", faq3a: "We take your privacy with absolute seriousness. We use the latest encryption protocols and never share your data with any third party.",
+                footerAbout: "About Efad", footerDesc: "A tech project passionately designed to make a real change in the lives of Arab students, connecting them with the best global opportunities.",
+                footerLinks: "Quick Links", link1: "Home", link2: "Supported Scholarships", link3: "Contact Us",
+                footerLegal: "Legal", link4: "Privacy Policy", link5: "Terms of Use", link6: "Data Security",
+                footerCopy: "Designed in Riyadh for Creative Arab Minds | Efad Platform © 2026"
+            }
+        };
+
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.getElementById('html-tag').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            document.getElementById('html-tag').setAttribute('lang', currentLang);
+            
+            for (let key in translations[currentLang]) {
+                let el = document.getElementById('t-' + key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase());
+                if(el) el.innerText = translations[currentLang][key];
+            }
+            document.getElementById('lang-btn-text').innerText = translations[currentLang].langBtn;
+        }
+
+        function login() { window.location.href = "index.html"; }
+    </script>
+</body>
+</html>
