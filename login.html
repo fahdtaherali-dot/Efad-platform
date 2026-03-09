@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إيفاد | تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fbff; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
+        .login-box img { height: 70px; margin-bottom: 20px; }
+        h2 { color: #102a43; margin-top: 0; }
+        .input-group { margin-bottom: 20px; text-align: right; }
+        .input-group label { display: block; color: #333; font-weight: 600; margin-bottom: 8px; }
+        .input-group input { width: 90%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Cairo'; font-size: 16px; outline: none; }
+        .input-group input:focus { border-color: #27ae60; }
+        .btn-login { background: #27ae60; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; font-family: 'Cairo'; transition: 0.3s; margin-top: 10px; }
+        .btn-login:hover { background: #219150; transform: translateY(-2px); }
+        .back-link { display: block; margin-top: 20px; color: #2980b9; text-decoration: none; font-size: 14px; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <img src="logo.png" alt="شعار إيفاد">
+        <h2>مرحباً بعودتك!</h2>
+        <p style="color: #666; font-size: 14px; margin-bottom: 30px;">سجل دخولك لمتابعة خارطة طريقك</p>
+
+        <form action="dashboard.html" method="GET">
+            <div class="input-group">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="input-group">
+                <label>كلمة المرور</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-login">دخول</button>
+        </form>
+
+        <a href="landing.html" class="back-link">العودة للصفحة الرئيسية</a>
+        <div style="margin-top: 15px; font-size: 14px; color: #666;">
+    ليس لديك حساب؟ <a href="register.html" style="color: #2980b9; font-weight: bold; text-decoration: none;">إنشاء حساب جديد</a>
+        </div>
+    </div>
+
+</body>
+</html>

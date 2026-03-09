@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إيفاد | لوحة التحكم والنتائج</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; margin: 0; background-color: #f4f7f6; color: #333; }
+        
+        /* شريط علوي بسيط */
+        header { background: #102a43; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .user-profile { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .user-profile img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #27ae60; }
+        .logout-btn { background: rgba(255,255,255,0.1); border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: 0.3s; font-family: inherit; }
+        .logout-btn:hover { background: #e74c3c; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+
+        /* الكارت الجانبي (النسبة) */
+        .score-card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: fit-content; border-top: 5px solid #27ae60; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 10px solid #e1e8ed; border-top-color: #27ae60; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; font-size: 40px; font-weight: 800; color: #102a43; }
+        .score-card h3 { margin: 0 0 10px 0; color: #1a3c5e; font-size: 22px; }
+        .score-card p { color: #627d98; font-size: 15px; margin-bottom: 20px; }
+        .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 14px; }
+
+        /* القسم الرئيسي (التحليل والخارطة) */
+        .main-content { display: flex; flex-direction: column; gap: 30px; }
+        
+        .ai-analysis { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-right: 5px solid #2980b9; }
+        .ai-analysis h2 { margin-top: 0; color: #102a43; display: flex; align-items: center; gap: 10px; }
+        .feedback-item { background: #f8fbff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e1e8ed; }
+        .feedback-item.warning { border-right: 4px solid #f39c12; }
+        .feedback-item.success { border-right: 4px solid #27ae60; }
+
+        /* خارطة الطريق (Timeline) */
+        .roadmap { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .roadmap h2 { margin-top: 0; color: #102a43; }
+        .timeline { border-right: 3px solid #e1e8ed; padding-right: 20px; margin-right: 10px; }
+        .step { position: relative; margin-bottom: 30px; }
+        .step::before { content: ''; position: absolute; right: -29px; top: 5px; width: 15px; height: 15px; background: #27ae60; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #27ae60; }
+        .step h4 { margin: 0 0 5px 0; color: #2980b9; }
+        .step p { margin: 0; color: #546e7a; font-size: 15px; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎓 إيفاد</div>
+        <div class="user-profile">
+            <span id="user-name">فهد (طالب ثانوي)</span>
+            <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="score-card">
+            <div class="score-circle">75%</div>
+            <h3>احتمالية القبول</h3>
+            <p>الهدف: القبول في جامعات النخبة (هارفارد، MIT، ستانفورد) وبرنامج Rise.</p>
+            <span class="badge">ملف تنافسي - يحتاج لتطوير</span>
+        </div>
+
+        <div class="main-content">
+            
+            <div class="ai-analysis">
+                <h2>🧠 تحليل الذكاء الاصطناعي لملفك</h2>
+                <div class="feedback-item success">
+                    <strong>✅ نقاط القوة:</strong> معدلك التراكمي العالي واهتمامك بالرياضيات والبرمجة (Python, HTML, SQL) يضعك في شريحة ممتازة للتقديم على تخصصات الهندسة وعلوم الحاسب.
+                </div>
+                <div class="feedback-item warning">
+                    <strong>⚠️ الفجوات المكتشفة:</strong> ملفك يفتقر إلى درجة قياسية في اللغة الإنجليزية (IELTS) واختبار القدرات العالمي (SAT). بدون هذه الدرجات، نسبة القبول في جامعات أمريكا وكندا تنخفض بشدة.
+                </div>
+                <div class="feedback-item warning">
+                    <strong>⚠️ العمل التطوعي:</strong> مشروعك (الرياضيات أملنا) فكرة عبقرية، لكنه يحتاج إلى إطلاق فعلي وتوثيق أثره على الأطفال المرضى ليكون نقطة قوة ساحقة في المقابلات.
+                </div>
+            </div>
+
+            <div class="roadmap">
+                <h2>🗺️ خارطة الطريق المخصصة لك (للوصول إلى 90%)</h2>
+                <div class="timeline">
+                    <div class="step">
+                        <h4>الشهر الأول: التأسيس اللغوي والمشروع</h4>
+                        <p>البدء بخطة مكثفة لاختبار IELTS (الهدف 7.5). إطلاق النسخة التجريبية (MVP) من موقع "الرياضيات أملنا" ليكون جاهزاً للعرض.</p>
+                    </div>
+                    <div class="step">
+                        <h4>الشهر الثاني والثالث: هجوم الـ SAT والـ AP</h4>
+                        <p>التركيز الكامل على حل تجميعات الـ SAT (الهدف 1550). التحضير لاختبارات AP Calculus و AP Physics لتعزيز قوتك في التخصص.</p>
+                    </div>
+                    <div class="step">
+                        <h4>الشهر الرابع: بناء القصة (Personal Essay)</h4>
+                        <p>كتابة مقال التقديم للجامعات (هارفارد و MIT). التركيز في المقال على قدرتك كشخص يمني في تحويل التحديات إلى ابتكارات تقنية تساعد مجتمعك.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            // محاكاة تسجيل الخروج والعودة للصفحة الرئيسية
+            window.location.href = "landing.html";
+        }
+    </script>
+</body>
+</html>
