@@ -1,4 +1,4 @@
-# 🎓 Efad Platform (إيفاد)
+#  Efad Platform (إيفاد)
 
 Hi! I'm Fahd, a high school student, and this is my project: Efad.
 
