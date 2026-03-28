@@ -8,4 +8,4 @@ I noticed that many smart students in the Arab world (especially those facing to
 Efad is a tool I'm developing to fix this. It basically takes a student's profile (GPA, skills, activities) and acts as a personal AI advisor. It points out what's missing in your application and gives you a clear plan to improve it.
 
 **Current Status:**
-This repo currently holds the frontend UI (HTML/CSS/JS). 
+This repo currently holds the froend UI (HTML/CSS/JS). 
